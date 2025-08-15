@@ -25,3 +25,40 @@ Sistema de gestión de biblioteca implementado en Python como evidencia de compe
 ```bash
 # Ejecutar el sistema completo:
 python _4_main.py
+```
+
+## 📐 Diagrama de Clases
+
+```mermaid
+classDiagram
+    class Libro {
+        -_titulo: str
+        -_autor: str
+        -_año_publicacion: str
+        -_estado: str
+        +titulo: property
+        +autor: property
+        +año_publicacion: property
+        +estado: property
+        +__str__() str
+    }
+
+    class LibroDigital {
+        -_formato: str
+        +__str__() str
+    }
+
+    class Biblioteca {
+        -_libros: list[Libro]
+        +agregar_libro()
+        +eliminar_libro()
+        +listar_libros()
+        +buscar_libro()
+        +marcar_prestado()
+        +devolver_libro()
+        +cargar_libros()
+        +guardar_libros()
+    }
+
+    Libro <|-- LibroDigital : Herencia
+    Biblioteca "1" *-- "0..*" Libro : Contiene
